@@ -10,21 +10,42 @@ public class ExpenseReport
     
     public void PrintReport(List<Expense> expenses)
     {
-
-        Console.WriteLine("Expenses " + DateTime.Now);
+        PrintHeader();
             
         foreach (Expense expense in expenses)
         {
-            var lineText = expense.GetExpenseName() + "\t" + expense.amount + "\t";
-
-            if (expense.IsOverBudget())
-                lineText += MealOverExpensesMarker;
-            
-            Console.WriteLine(lineText);
+            PrintLine(expense);
         }
 
+        PrintFooter(expenses);
+    }
+
+    private static void PrintHeader()
+    {
+        Console.WriteLine("Expenses " + DateTime.Now);
+    }
+
+    private void PrintFooter(List<Expense> expenses)
+    {
         Console.WriteLine("Meal expenses: " + CalculateMealExpenses(expenses));
         Console.WriteLine("Total expenses: " + CalculateTotal(expenses));
+    }
+
+    private void PrintLine(Expense expense)
+    {
+        var lineText = FormatLineText(expense);
+
+        Console.WriteLine(lineText);
+    }
+
+    private static string FormatLineText(Expense expense)
+    {
+        var lineText = expense.GetExpenseName() + "\t" + expense.amount + "\t";
+
+        if (expense.IsOverBudget())
+            lineText += MealOverExpensesMarker;
+        
+        return lineText;
     }
 
     private int CalculateTotal(List<Expense> expenses)
