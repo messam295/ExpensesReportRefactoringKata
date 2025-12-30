@@ -16,5 +16,18 @@
         
         public bool IsMeal() =>
             type == ExpenseType.Dinner || type == ExpenseType.Breakfast;
+        
+        public bool IsOverBudget() =>
+            IsBreakfastOverBudget() || IsDinnerOverBudget();
+        
+        private bool IsBreakfastOverBudget()
+        {
+            return type == ExpenseType.Breakfast && amount > 1000;
+        }
+
+        private bool IsDinnerOverBudget()
+        {
+            return type == ExpenseType.Dinner && amount > 5000;
+        }
     }
 }
