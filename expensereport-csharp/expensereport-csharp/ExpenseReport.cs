@@ -8,10 +8,6 @@ public class ExpenseReport
 {
     public void PrintReport(List<Expense> expenses)
     {
-        int mealExpenses = expenses
-            .Where(e => e.IsMeal())
-            .Sum(e => e.amount);
-
         Console.WriteLine("Expenses " + DateTime.Now);
             
         foreach (Expense expense in expenses)
@@ -25,7 +21,14 @@ public class ExpenseReport
             Console.WriteLine(expense.GetExpenseName() + "\t" + expense.amount + "\t" + mealOverExpensesMarker);
         }
 
-        Console.WriteLine("Meal expenses: " + mealExpenses);
+        Console.WriteLine("Meal expenses: " + CalculateMealExpenses(expenses));
         Console.WriteLine("Total expenses: " + expenses.Sum(e => e.amount));
+    }
+
+    private int CalculateMealExpenses(List<Expense> expenses)
+    {
+        return expenses
+            .Where(e => e.IsMeal())
+            .Sum(e => e.amount);
     }
 }
