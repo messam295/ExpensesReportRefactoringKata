@@ -18,9 +18,14 @@ public class ExpenseReport
         }
 
         Console.WriteLine("Meal expenses: " + CalculateMealExpenses(expenses));
-        Console.WriteLine("Total expenses: " + expenses.Sum(e => e.amount));
+        Console.WriteLine("Total expenses: " + CalculateTotal(expenses));
     }
-    
+
+    private int CalculateTotal(List<Expense> expenses)
+    {
+        return expenses.Sum(e => e.amount);
+    }
+
     private int CalculateMealExpenses(List<Expense> expenses)
     {
         return expenses
