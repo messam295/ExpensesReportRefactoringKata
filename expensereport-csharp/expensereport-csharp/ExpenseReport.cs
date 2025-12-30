@@ -13,7 +13,7 @@ public class ExpenseReport
         foreach (Expense expense in expenses)
         {
             String mealOverExpensesMarker =
-                expense.type == ExpenseType.Dinner && expense.amount > 5000 ||
+                IsBreakfastOverBudget(expense) ||
                 expense.type == ExpenseType.Breakfast && expense.amount > 1000
                     ? "X"
                     : " ";
@@ -23,6 +23,11 @@ public class ExpenseReport
 
         Console.WriteLine("Meal expenses: " + CalculateMealExpenses(expenses));
         Console.WriteLine("Total expenses: " + expenses.Sum(e => e.amount));
+    }
+
+    private static bool IsBreakfastOverBudget(Expense expense)
+    {
+        return expense.type == ExpenseType.Dinner && expense.amount > 5000;
     }
 
     private int CalculateMealExpenses(List<Expense> expenses)
