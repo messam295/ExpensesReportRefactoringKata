@@ -33,9 +33,7 @@ public class ExpenseReport
 
     private void PrintLine(Expense expense)
     {
-        var lineText = FormatLineText(expense);
-
-        Console.WriteLine(lineText);
+        Console.WriteLine(FormatLineText(expense));
     }
 
     private static string FormatLineText(Expense expense)
