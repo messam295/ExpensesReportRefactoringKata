@@ -21,8 +21,7 @@ public class ExpenseReport
     {
         foreach (Expense expense in expenses)
         {
-            var lineText = FormatLineText(expense);
-            PrintLine(lineText);
+            PrintLine(FormatLineText(expense));
         }
     }
 
