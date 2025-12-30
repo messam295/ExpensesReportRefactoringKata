@@ -19,15 +19,14 @@ public class ExpenseReport
                 mealExpenses += expense.amount;
             }
 
-            var expenseName = expense.GetExpenseName();
 
             String mealOverExpensesMarker =
                 expense.type == ExpenseType.Dinner && expense.amount > 5000 ||
                 expense.type == ExpenseType.Breakfast && expense.amount > 1000
                     ? "X"
                     : " ";
-
-            Console.WriteLine(expenseName + "\t" + expense.amount + "\t" + mealOverExpensesMarker);
+            
+            Console.WriteLine(expense.GetExpenseName() + "\t" + expense.amount + "\t" + mealOverExpensesMarker);
 
             total += expense.amount;
         }
