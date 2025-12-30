@@ -12,9 +12,12 @@ public class ExpenseReport
             
         foreach (Expense expense in expenses)
         {
-            String mealOverExpensesMarker = expense.IsOverBudget() ? "X" : " ";
             
-            Console.WriteLine(expense.GetExpenseName() + "\t" + expense.amount + "\t" + mealOverExpensesMarker);
+            String mealOverExpensesMarker = expense.IsOverBudget() ? "X" : " ";
+
+            var lineText = expense.GetExpenseName() + "\t" + expense.amount + "\t" + mealOverExpensesMarker;
+            
+            Console.WriteLine(lineText);
         }
 
         Console.WriteLine("Meal expenses: " + CalculateMealExpenses(expenses));
