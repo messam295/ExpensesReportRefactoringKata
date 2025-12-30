@@ -25,12 +25,12 @@ public class ExpenseReport
         Console.WriteLine("Total expenses: " + expenses.Sum(e => e.amount));
     }
 
-    private static bool IsDinnerOverBudget(Expense expense)
+    private static bool IsBreakfastOverBudget(Expense expense)
     {
         return expense.type == ExpenseType.Breakfast && expense.amount > 1000;
     }
 
-    private static bool IsBreakfastOverBudget(Expense expense)
+    private static bool IsDinnerOverBudget(Expense expense)
     {
         return expense.type == ExpenseType.Dinner && expense.amount > 5000;
     }
