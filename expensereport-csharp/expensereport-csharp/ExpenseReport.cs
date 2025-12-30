@@ -14,7 +14,7 @@ public class ExpenseReport
         {
             String mealOverExpensesMarker =
                 IsBreakfastOverBudget(expense) ||
-                expense.type == ExpenseType.Breakfast && expense.amount > 1000
+                IsDinnerOverBudget(expense)
                     ? "X"
                     : " ";
             
@@ -23,6 +23,11 @@ public class ExpenseReport
 
         Console.WriteLine("Meal expenses: " + CalculateMealExpenses(expenses));
         Console.WriteLine("Total expenses: " + expenses.Sum(e => e.amount));
+    }
+
+    private static bool IsDinnerOverBudget(Expense expense)
+    {
+        return expense.type == ExpenseType.Breakfast && expense.amount > 1000;
     }
 
     private static bool IsBreakfastOverBudget(Expense expense)
