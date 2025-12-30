@@ -8,17 +8,14 @@ public class ExpenseReport
 {
     public void PrintReport(List<Expense> expenses)
     {
-        int mealExpenses = 0;
+        int mealExpenses = expenses
+            .Where(e => e.IsMeal())
+            .Sum(e => e.amount);
 
         Console.WriteLine("Expenses " + DateTime.Now);
             
         foreach (Expense expense in expenses)
         {
-            if (expense.IsMeal())
-            {
-                mealExpenses += expense.amount;
-            }
-
             String mealOverExpensesMarker =
                 expense.type == ExpenseType.Dinner && expense.amount > 5000 ||
                 expense.type == ExpenseType.Breakfast && expense.amount > 1000
