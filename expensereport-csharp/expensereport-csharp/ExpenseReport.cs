@@ -19,8 +19,7 @@ public class ExpenseReport
                 mealExpenses += expense.amount;
             }
 
-            String expenseName = "";
-            expenseName = GetExpenseName(expense);
+            var expenseName = GetExpenseName(expense);
 
             String mealOverExpensesMarker =
                 expense.type == ExpenseType.Dinner && expense.amount > 5000 ||
