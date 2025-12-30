@@ -36,16 +36,13 @@ public class ExpenseReport
         Console.WriteLine("Total expenses: " + total);
     }
 
-    private string GetExpenseName(Expense expense)
-    {
-        string expenseName = expense.type switch
+    private string GetExpenseName(Expense expense) =>
+        expense.type switch
         {
             ExpenseType.Dinner => "Dinner",
             ExpenseType.Breakfast => "Breakfast",
             ExpenseType.Car_Rental => "Car Rental",
             _ => ""
         };
-
-        return expenseName;
-    }
+    
 }
