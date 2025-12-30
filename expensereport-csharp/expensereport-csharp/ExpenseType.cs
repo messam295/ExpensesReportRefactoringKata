@@ -2,7 +2,7 @@ namespace expensereport_csharp;
 
 public enum ExpenseType
 {
-    DINNER, 
-    BREAKFAST, 
-    CAR_RENTAL
+    Dinner, 
+    Breakfast, 
+    Car_Rental
 }

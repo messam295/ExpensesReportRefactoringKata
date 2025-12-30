@@ -66,9 +66,9 @@ public class TestDataGenerator : IEnumerable<object[]>
     {
         var expenses = new List<Expense>
         {
-            new() { type = ExpenseType.BREAKFAST, amount = 1000 },
-            new() { type = ExpenseType.DINNER, amount = 5000 },
-            new() { type = ExpenseType.CAR_RENTAL, amount = 2000 },
+            new() { type = ExpenseType.Breakfast, amount = 1000 },
+            new() { type = ExpenseType.Dinner, amount = 5000 },
+            new() { type = ExpenseType.Car_Rental, amount = 2000 },
         };
 
         var expected = new List<string>
@@ -91,9 +91,9 @@ public class TestDataGenerator : IEnumerable<object[]>
     {
         var expenses = new List<Expense>
         {
-            new() { type = ExpenseType.BREAKFAST, amount = 1001 },
-            new() { type = ExpenseType.DINNER, amount = 5001 },
-            new() { type = ExpenseType.CAR_RENTAL, amount = 2000 },
+            new() { type = ExpenseType.Breakfast, amount = 1001 },
+            new() { type = ExpenseType.Dinner, amount = 5001 },
+            new() { type = ExpenseType.Car_Rental, amount = 2000 },
         };
         
         var expected = new List<string>
