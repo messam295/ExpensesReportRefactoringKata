@@ -20,7 +20,7 @@ public class ExpenseReport
             }
 
             String expenseName = "";
-            expenseName = GetExpenseName(expense, expenseName);
+            expenseName = GetExpenseName(expense);
 
             String mealOverExpensesMarker =
                 expense.type == ExpenseType.Dinner && expense.amount > 5000 ||
@@ -37,8 +37,9 @@ public class ExpenseReport
         Console.WriteLine("Total expenses: " + total);
     }
 
-    private string GetExpenseName(Expense expense, string expenseName)
+    private string GetExpenseName(Expense expense)
     {
+        string expenseName = "";
         switch (expense.type)
         {
             case ExpenseType.Dinner:
