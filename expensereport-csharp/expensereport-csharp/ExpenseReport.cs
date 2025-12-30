@@ -20,18 +20,7 @@ public class ExpenseReport
             }
 
             String expenseName = "";
-            switch (expense.type)
-            {
-                case ExpenseType.DINNER:
-                    expenseName = "Dinner";
-                    break;
-                case ExpenseType.BREAKFAST:
-                    expenseName = "Breakfast";
-                    break;
-                case ExpenseType.CAR_RENTAL:
-                    expenseName = "Car Rental";
-                    break;
-            }
+            expenseName = GetExpenseName(expense, expenseName);
 
             String mealOverExpensesMarker =
                 expense.type == ExpenseType.DINNER && expense.amount > 5000 ||
@@ -46,5 +35,23 @@ public class ExpenseReport
 
         Console.WriteLine("Meal expenses: " + mealExpenses);
         Console.WriteLine("Total expenses: " + total);
+    }
+
+    private string GetExpenseName(Expense expense, string expenseName)
+    {
+        switch (expense.type)
+        {
+            case ExpenseType.DINNER:
+                expenseName = "Dinner";
+                break;
+            case ExpenseType.BREAKFAST:
+                expenseName = "Breakfast";
+                break;
+            case ExpenseType.CAR_RENTAL:
+                expenseName = "Car Rental";
+                break;
+        }
+
+        return expenseName;
     }
 }
