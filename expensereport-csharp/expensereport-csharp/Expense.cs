@@ -13,5 +13,8 @@
                 ExpenseType.Car_Rental => "Car Rental",
                 _ => ""
             };
+        
+        public bool IsMeal() =>
+            type == ExpenseType.Dinner || type == ExpenseType.Breakfast;
     }
 }

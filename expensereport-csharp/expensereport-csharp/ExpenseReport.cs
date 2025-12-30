@@ -14,7 +14,7 @@ public class ExpenseReport
             
         foreach (Expense expense in expenses)
         {
-            if (IsMeal(expense))
+            if (expense.IsMeal())
             {
                 mealExpenses += expense.amount;
             }
@@ -30,10 +30,5 @@ public class ExpenseReport
 
         Console.WriteLine("Meal expenses: " + mealExpenses);
         Console.WriteLine("Total expenses: " + expenses.Sum(e => e.amount));
-    }
-
-    private bool IsMeal(Expense expense)
-    {
-        return expense.type == ExpenseType.Dinner || expense.type == ExpenseType.Breakfast;
     }
 }
