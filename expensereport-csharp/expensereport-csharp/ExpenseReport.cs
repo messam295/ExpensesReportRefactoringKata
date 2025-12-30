@@ -8,7 +8,6 @@ public class ExpenseReport
 {
     public void PrintReport(List<Expense> expenses)
     {
-        int total = expenses.Sum(e => e.amount);
         int mealExpenses = 0;
 
         Console.WriteLine("Expenses " + DateTime.Now);
@@ -30,7 +29,7 @@ public class ExpenseReport
         }
 
         Console.WriteLine("Meal expenses: " + mealExpenses);
-        Console.WriteLine("Total expenses: " + total);
+        Console.WriteLine("Total expenses: " + expenses.Sum(e => e.amount));
     }
     
 }
