@@ -38,19 +38,13 @@ public class ExpenseReport
 
     private string GetExpenseName(Expense expense)
     {
-        string expenseName = "";
-        switch (expense.type)
+        string expenseName = expense.type switch
         {
-            case ExpenseType.Dinner:
-                expenseName = "Dinner";
-                break;
-            case ExpenseType.Breakfast:
-                expenseName = "Breakfast";
-                break;
-            case ExpenseType.Car_Rental:
-                expenseName = "Car Rental";
-                break;
-        }
+            ExpenseType.Dinner => "Dinner",
+            ExpenseType.Breakfast => "Breakfast",
+            ExpenseType.Car_Rental => "Car Rental",
+            _ => ""
+        };
 
         return expenseName;
     }
