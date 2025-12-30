@@ -6,16 +6,19 @@ namespace expensereport_csharp;
 
 public class ExpenseReport
 {
+    const string mealOverExpensesMarker = "X";
+    
     public void PrintReport(List<Expense> expenses)
     {
+
         Console.WriteLine("Expenses " + DateTime.Now);
             
         foreach (Expense expense in expenses)
         {
-            
-            String mealOverExpensesMarker = expense.IsOverBudget() ? "X" : " ";
+            var lineText = expense.GetExpenseName() + "\t" + expense.amount + "\t";
 
-            var lineText = expense.GetExpenseName() + "\t" + expense.amount + "\t" + mealOverExpensesMarker;
+            if (expense.IsOverBudget())
+                lineText += mealOverExpensesMarker;
             
             Console.WriteLine(lineText);
         }
