@@ -12,12 +12,18 @@ public class ExpenseReport
     {
         PrintHeader();
             
-        foreach (Expense expense in expenses)
-        {
-            PrintLine(expense);
-        }
+        PrintLines(expenses);
 
         PrintFooter(expenses);
+    }
+
+    private void PrintLines(List<Expense> expenses)
+    {
+        foreach (Expense expense in expenses)
+        {
+            var lineText = FormatLineText(expense);
+            PrintLine(lineText);
+        }
     }
 
     private static void PrintHeader()
@@ -31,9 +37,9 @@ public class ExpenseReport
         Console.WriteLine("Total expenses: " + CalculateTotal(expenses));
     }
 
-    private void PrintLine(Expense expense)
+    private void PrintLine(string lineText)
     {
-        Console.WriteLine(FormatLineText(expense));
+        Console.WriteLine(lineText);
     }
 
     private static string FormatLineText(Expense expense)
