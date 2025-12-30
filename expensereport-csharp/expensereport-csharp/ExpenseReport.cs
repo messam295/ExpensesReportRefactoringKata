@@ -19,7 +19,7 @@ public class ExpenseReport
                 mealExpenses += expense.amount;
             }
 
-            var expenseName = GetExpenseName(expense);
+            var expenseName = expense.GetExpenseName();
 
             String mealOverExpensesMarker =
                 expense.type == ExpenseType.Dinner && expense.amount > 5000 ||
@@ -35,14 +35,5 @@ public class ExpenseReport
         Console.WriteLine("Meal expenses: " + mealExpenses);
         Console.WriteLine("Total expenses: " + total);
     }
-
-    private string GetExpenseName(Expense expense) =>
-        expense.type switch
-        {
-            ExpenseType.Dinner => "Dinner",
-            ExpenseType.Breakfast => "Breakfast",
-            ExpenseType.Car_Rental => "Car Rental",
-            _ => ""
-        };
     
 }
